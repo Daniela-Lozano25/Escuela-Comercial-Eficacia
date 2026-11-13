@@ -1,0 +1,61 @@
+:root{
+  --ink:#14213d; --ink-soft:#4a5468; --paper:#f4f5f7; --white:#fff;
+  --line:#d9dce3; --navy:#14213d; --teal:#1f5a56; --accent:var(--navy);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+main{flex:1;width:100%;max-width:1080px;margin:0 auto;padding:2.5rem 1.25rem 4rem;outline:none}
+a{color:inherit}
+:focus-visible{outline:3px solid #7a8fb8;outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:.005em}
+
+.topbar{display:flex;flex-wrap:wrap;gap:.5rem 2rem;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--navy);color:#fff}
+.brand{font-family:var(--serif);font-size:1.5rem;font-weight:600;text-decoration:none}
+.topbar nav{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem}
+.topbar nav a{text-decoration:none;font-size:.95rem;padding:.25rem 0;border-bottom:1px solid transparent;opacity:.85}
+.topbar nav a:hover,.topbar nav a.on{opacity:1;border-color:#fff}
+
+.hero{padding:3rem 0 2.5rem;max-width:44rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:1rem}
+.hero p{font-size:1.15rem;color:var(--ink-soft)}
+
+.areas{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.area{background:var(--white);border:1px solid var(--line);border-left:6px solid var(--c);padding:2rem 1.75rem;display:flex;flex-direction:column;gap:1rem}
+.area h2{font-size:2rem;color:var(--c)}
+.area p{color:var(--ink-soft);flex:1}
+.area.comercial{--c:var(--navy)} .area.trade{--c:var(--teal)}
+
+.btn{display:inline-block;align-self:flex-start;font:inherit;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;
+  background:var(--c,var(--accent));color:#fff;border:1px solid var(--c,var(--accent));padding:.75rem 1.5rem;transition:background .2s,color .2s}
+.btn:hover{background:#fff;color:var(--c,var(--accent))}
+.btn.outline{background:#fff;color:var(--c,var(--accent))}
+.btn.outline:hover,.btn.outline[aria-expanded="true"]{background:var(--c,var(--accent));color:#fff}
+
+.page{--c:var(--navy)} .page.trade{--c:var(--teal)}
+.crumb{font-size:.95rem;color:var(--ink-soft);margin-bottom:1.5rem}
+.crumb a{text-decoration:none;border-bottom:1px solid var(--line)}
+.page h1{font-size:clamp(2.2rem,5vw,3.25rem);color:var(--c);margin-bottom:.75rem}
+.page .lead{max-width:42rem;color:var(--ink-soft);font-size:1.1rem;margin-bottom:2rem}
+
+.modules{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));margin-top:2rem}
+.modules[hidden]{display:none}
+.mod{display:block;text-decoration:none;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--c);padding:1.5rem;transition:transform .2s,box-shadow .2s;animation:reveal .3s ease both}
+.mod:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,33,61,.12)}
+.mod h3{font-size:1.5rem;margin-bottom:.4rem;color:var(--c)}
+.mod p{color:var(--ink-soft);font-size:.98rem}
+@keyframes reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.acc{margin-top:1.5rem;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line);background:var(--white)}
+.acc summary{cursor:pointer;list-style:none;padding:1.15rem 1.25rem;font-weight:600;display:flex;justify-content:space-between;gap:1rem}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:'+';font-size:1.5rem;line-height:1;color:var(--c);transition:transform .2s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc details>div{padding:0 1.25rem 1.25rem;color:var(--ink-soft);max-width:46rem}
+.footer{text-align:center;padding:1.5rem;font-size:.9rem;color:var(--ink-soft);border-top:1px solid var(--line)}
+
+@media (max-width:560px){.area{padding:1.5rem 1.25rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
